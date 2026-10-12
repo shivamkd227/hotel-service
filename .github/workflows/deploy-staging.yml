@@ -1,4 +1,4 @@
-name: Deploy Nextra Gateway to Staging
+name: Deploy Hotel service to Staging
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-push-staging:
-    name: Build & Push (Staging)
+    name: Build & Push (Staging) - hotel service
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,7 @@ jobs:
       - name: Build and Push Docker Image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPO_NAME: nextra-gateway
+          REPO_NAME: hotel-service
           SHORT_SHA: ${{ github.sha }}
         uses: docker/build-push-action@v5
         with:
